@@ -3,7 +3,8 @@ import React, { useRef, useState } from 'react';
 import CardPanel from './CardPanel';
 import ParametresCard from './parametresCard';
 import { JaaSMeeting, JitsiMeeting } from '@jitsi/react-sdk';
-
+import Image from "next/image";
+import ApexChart from './ApexChart'
 function PanelLeft() {
 
     const apiRef = useRef();
@@ -205,12 +206,12 @@ function PanelLeft() {
 
                     <CardPanel headerText="Sp02" division="w-1/2">
                         <div className="place-content-center text-center">                            
-                            <div className='py-12 lg:text-4xl xl:text-6xl text-gray-400 font-bold'> 97 % </div> 
+                            <div className='py-9 lg:text-4xl xl:text-6xl text-gray-400 font-bold'> 97 <span className='py-9 lg:text-2xl xl:text-4xl text-gray-400 font-bold'> %</span> </div> 
                         </div> 
                     </CardPanel>
                     <CardPanel headerText="Fréquence cardiaque" division="w-1/2">
                         <div className="place-content-center text-center">                            
-                            <div className='py-12 lg:text-4xl xl:text-6xl text-gray-400 font-bold'> 109Bpm </div> 
+                            <div className='py-9 lg:text-4xl xl:text-6xl text-gray-400 font-bold'> 109 <span className='py-9 lg:text-2xl xl:text-4xl text-gray-400 font-bold'> Bpm</span> </div> 
                         </div> 
                     </CardPanel>
                     
@@ -257,9 +258,11 @@ function PanelLeft() {
                             useStaging = { true }
                             getIFrameRef = { handleJaaSIFrameRef } /> */}
                     </CardPanel>
+                
                     <CardPanel headerText="Panneau de contrôle" division="w-1/3">
                     
-                    </CardPanel>                    
+                    </CardPanel>   
+                              
                 </div>  
                 
             </div>  
@@ -267,30 +270,52 @@ function PanelLeft() {
             <div className = "w-full px-1 lg:w-1/2">
                 <div className = "flex w-full ml-0 ">
 
-                    <CardPanel headerText="Consommation" division="w-1/2">
-                        <div className="place-content-center text-center">                            
-                            <div className='py-9 lg:text-4xl xl:text-6xl text-gray-400 font-bold'> 1.1 Kwh</div> 
+                    <CardPanel headerText="Consommation" division="w-1/2">                   
+                     
+                        <div className="flex place-content-center items-center">                          
+                          
+                            <Image className="py-8"
+                                src="/assets/images/bolt.png"
+                                width={64}
+                                height={64}
+                                alt="P"
+                            /> 
+                               <span className='py-8 lg:text-4xl xl:text-6xl text-gray-400 font-bold'> 1.1</span> <span className='py-8 lg:text-2xl xl:text-4xl text-gray-400 font-bold'> Kwh</span> 
                         </div> 
                     </CardPanel>
                     <CardPanel headerText="Niveau d eau dans le bac" division="w-1/2">
-                        <div className="place-content-center text-center">                            
-                            <div className='py-9 lg:text-4xl xl:text-6xl text-gray-400 font-bold'> 1.8 L</div> 
-                        </div>
+                    <div className="flex place-content-center items-center">                          
+                          
+                          <Image className="py-8"
+                              src="/assets/images/moise.png"
+                              width={64}
+                              height={64}
+                              alt="P"
+                          /> 
+                             <span className='py-8 lg:text-4xl xl:text-6xl text-gray-400 font-bold space-x-1'> 1.8 </span> <span className='py-8 lg:text-2xl xl:text-4xl text-gray-400 font-bold'> Kwh</span> 
+                      </div> 
                     </CardPanel>
                     
                 </div>  
 
                 <div className = "flex w-full ml-0 mt-1">
                     <CardPanel headerText="Historique de consommation" division="w-full">
-                    
+                      <ApexChart></ApexChart>
                     </CardPanel>
                                         
                 </div> 
                 <div className = "flex w-full ml-0 mt-1">
                   <CardPanel headerText="Poids du bébé" division="w-full"> 
-                        <div className="place-content-center text-center">                            
-                            <div className='py-9 lg:text-4xl xl:text-6xl text-gray-400 font-bold'> 1.1 Kg</div> 
-                        </div>                   
+                  <div className="flex place-content-center items-center">                          
+                          
+                          <Image className="py-8"
+                              src="/assets/images/scale.png"
+                              width={100}
+                              height={100}
+                              alt="P"
+                          /> 
+                             <span className='py-8 lg:text-4xl xl:text-6xl text-gray-400 font-bold space-x-1'> 2.5 </span> <span className='py-8 lg:text-2xl xl:text-4xl text-gray-400 font-bold'> Kg</span> 
+                      </div>                   
                   </CardPanel>                                        
                 </div>
                 <div className = "flex w-full ml-0 mt-1">

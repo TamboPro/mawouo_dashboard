@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v18/mem5YaGs126MiZpBA-UN_r8OUuhs.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Varela Round';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Varela Round Regular'), local('VarelaRound-Regular'), url(https://fonts.gstatic.com/s/varelaround/v13/w8gdH283Tvk__Lua32TysjIfp8uK.ttf) format('truetype');
+}
+
 *,
 ::before,
 ::after {
@@ -1144,4 +1158,57 @@ video {
   .lg\:w-1\/3 {
     width: 33.333333%;
   }
+}
+
+
+
+.knob {
+  display: flex;
+  position: relative;
+}
+.knob .ticks {
+  position: absolute;
+}
+.knob .ticks .tick {
+  position: absolute;
+  background: black;
+  box-shadow: inset 0 0 0 0 black;
+  width: 1px;
+  transition: box-shadow 0.5s;
+}
+.knob .ticks .tick.active {
+  box-shadow: inset 0 0 1px 1px #509eec, 0 0 0 1px #369;
+}
+.knob.outer {
+ position: relative;
+      background-color: grey;
+      width: 14em;
+      height: 14em;
+      border-radius: 50%;
+      border: solid 0.25em #0e0e0e;
+      margin: 5em auto;
+      background: #181818;
+      background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1d1d1d), color-stop(1, #131313));
+      background: -ms-linear-gradient(bottom, #1d1d1d, #131313);
+      background: -moz-linear-gradient(center bottom, #1d1d1d 0%, #131313 100%);
+      background: -o-linear-gradient(#131313, #1d1d1d);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#131313', endColorstr='#1d1d1d', GradientType=0);
+      -webkit-box-shadow: 0 0.2em 0.1em 0.05em rgba(255, 255, 255, 0.1) inset, 0 -0.2em 0.1em 0.05em rgba(0, 0, 0, 0.5) inset, 0 0.5em 0.65em 0 rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 0 0.2em 0.1em 0.05em rgba(255, 255, 255, 0.1) inset, 0 -0.2em 0.1em 0.05em rgba(0, 0, 0, 0.5) inset, 0 0.5em 0.65em 0 rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0.2em 0.1em 0.05em rgba(255, 255, 255, 0.1) inset, 0 -0.2em 0.1em 0.05em rgba(0, 0, 0, 0.5) inset, 0 0.5em 0.65em 0 rgba(0, 0, 0, 0.3);
+    
+}
+.knob.inner {
+  border-radius: 50%;
+}
+.knob.inner .grip {
+  position: absolute;
+  width: 5%;
+  height: 5%;
+  bottom: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: #509eec;
+  box-shadow: 0 0 8px 1px black;
 }

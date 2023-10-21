@@ -5,6 +5,18 @@ import ParametresCard from './parametresCard';
 import { JaaSMeeting, JitsiMeeting } from '@jitsi/react-sdk';
 import Image from "next/image";
 import ApexChart from './ApexChart'
+import Knob from './knob';
+
+Knob.defaultProps = {
+    size: 100,
+    min: 10,
+    max: 30,
+    numTicks: 0,
+    degrees: 270,
+    value: 0
+  };
+
+
 function PanelLeft() {
 
     const apiRef = useRef();
@@ -81,7 +93,7 @@ function PanelLeft() {
         alert('Ready to close...');
     };
 
-    const generateRoomName = () => `Mimboman`; //`JitsiMeetRoomNo${Math.random() * 100}-${Date.now()}`;
+    const generateRoomName = () => `AUI-AFRICA-GENESIC-YAOUNDE`; //`JitsiMeetRoomNo${Math.random() * 100}-${Date.now()}`;
     const domaine = () => `stream.mawouo.org`;
 
     // Multiple instances demo
@@ -260,7 +272,7 @@ function PanelLeft() {
                     </CardPanel>
                 
                     <CardPanel headerText="Panneau de contrôle" division="w-1/3">
-                    
+                       
                     </CardPanel>   
                               
                 </div>  
@@ -280,7 +292,7 @@ function PanelLeft() {
                                 height={64}
                                 alt="P"
                             /> 
-                               <span className='py-8 lg:text-4xl xl:text-6xl text-gray-400 font-bold'> 1.1</span> <span className='py-8 lg:text-2xl xl:text-4xl text-gray-400 font-bold'> Kwh</span> 
+                               <span className='py-8 lg:text-4xl xl:text-6xl text-gray-400 font-bold'> 0.2</span> <span className='py-8 lg:text-2xl xl:text-4xl text-gray-400 font-bold'> Kwh</span> 
                         </div> 
                     </CardPanel>
                     <CardPanel headerText="Niveau d eau dans le bac" division="w-1/2">
@@ -292,14 +304,14 @@ function PanelLeft() {
                               height={64}
                               alt="P"
                           /> 
-                             <span className='py-8 lg:text-4xl xl:text-6xl text-gray-400 font-bold space-x-1'> 1.8 </span> <span className='py-8 lg:text-2xl xl:text-4xl text-gray-400 font-bold'> Kwh</span> 
+                             <span className='py-8 lg:text-4xl xl:text-6xl text-gray-400 font-bold space-x-1'> 1.8 </span> <span className='py-8 lg:text-2xl xl:text-4xl text-gray-400 font-bold'> L</span> 
                       </div> 
                     </CardPanel>
                     
                 </div>  
 
                 <div className = "flex w-full ml-0 mt-1">
-                    <CardPanel headerText="Historique de consommation" division="w-full">
+                    <CardPanel headerText="Historique de consommation" division="w-full">    
                       <ApexChart></ApexChart>
                     </CardPanel>
                                         
@@ -308,20 +320,39 @@ function PanelLeft() {
                   <CardPanel headerText="Poids du bébé" division="w-full"> 
                   <div className="flex place-content-center items-center">                          
                           
-                          <Image className="py-8"
+                          <Image className="py-4"
                               src="/assets/images/scale.png"
                               width={100}
                               height={100}
                               alt="P"
                           /> 
-                             <span className='py-8 lg:text-4xl xl:text-6xl text-gray-400 font-bold space-x-1'> 2.5 </span> <span className='py-8 lg:text-2xl xl:text-4xl text-gray-400 font-bold'> Kg</span> 
+                             <span className='py-4 lg:text-4xl xl:text-6xl text-gray-400 font-bold space-x-1'> 2.5 </span> <span className='py-4 lg:text-2xl xl:text-4xl text-gray-400 font-bold'> Kg</span> 
                       </div>                   
                   </CardPanel>                                        
                 </div>
                 <div className = "flex w-full ml-0 mt-1">
-                  <CardPanel headerText="Réglages" division="w-full">
-                    
-                  </CardPanel>                                        
+                        <CardPanel headerText="Réglages" division="w-full">
+                            <div className='xl:py-8 xl:px-8 lg:py-2 lg:px-2 flex place-content-center items-center'>
+                                <Knob 
+                                    numTicks={30}
+                                    degrees={270}
+                                    min={1}
+                                    max={100}
+                                    value={0}
+                                    unit={' °C'}
+                                />
+                                <Knob 
+                                    numTicks={30}
+                                    degrees={270}
+                                    min={1}
+                                    max={100}
+                                    value={0}
+                                    unit={' %'}
+                                />
+                                
+                            </div>
+                        </CardPanel>   
+                                                       
                 </div>
             </div>       
             
